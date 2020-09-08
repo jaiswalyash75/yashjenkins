@@ -8,7 +8,7 @@ pipeline {
         checkout scm
         sh 'python3 -m virtualenv env'
         sh 'source env/bin/activate'
-        sh 'pip3 install -r requirements.txt'
+        sh 'sudo pip3 install -r requirements.txt'
         sh 'ls -a'
       }
     }
