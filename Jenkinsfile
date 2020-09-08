@@ -10,6 +10,7 @@ pipeline {
         sh 'source env/bin/activate'
         sh 'ls -a'
         sh 'pwd'
+        sh 'python3 --version'
         sh 'pip3 install -r requirements.txt'
         sh 'ls -a'
       }
