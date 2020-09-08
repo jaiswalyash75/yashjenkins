@@ -11,7 +11,7 @@ pipeline {
         sh 'ls -a'
         sh 'pwd'
         sh 'python3 --version'
-        sh 'pip3 install -r requirements.txt'
+        sh 'pip3 install -r requirements.txt --user'
         sh 'ls -a'
       }
     }
