@@ -7,10 +7,13 @@ pipeline {
     cleanWs()
     }
     }
+    stage('checkout scm'){
+    steps{
+     checkout scm
+    }
+    }
     stage('build') {
       steps {
-
-        checkout scm
         sh 'python3 -m virtualenv env'
         sh 'source env/bin/activate'
         sh 'pip3 install -r requirements.txt'
