@@ -1,11 +1,11 @@
 pipeline {
   agent any
-  environment {
-    GITHUB_CREDENTIALS=credentials('my-git-creds')
-  }
   stages {
     stage('build') {
       steps {
+        cleanWs()
+        sh 'python3 -m virtualenv env'
+        sh 'source env/bin/activate'
         sh 'pip install -r requirements.txt'
       }
     }
@@ -15,11 +15,6 @@ pipeline {
         sh 'python test.py'
       }
     }
-  }
-  post{
-     always {
-        cleanWs()
-     }
   }
 }
 
