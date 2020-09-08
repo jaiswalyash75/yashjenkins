@@ -4,6 +4,7 @@ pipeline {
     stage('build') {
       steps {
         cleanWs()
+        checkout scm
         sh 'ls -a'
       }
     }
