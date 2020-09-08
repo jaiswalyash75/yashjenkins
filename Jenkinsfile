@@ -13,12 +13,12 @@ pipeline {
         sh 'python3 --version'
         sh 'pip3 install -r requirements.txt --user'
         sh 'ls -a'
+        sh 'python3 linting.py'
       }
     }
     stage('test') {
       steps {
-        sh 'python linting.py'
-        sh 'python test.py'
+        sh 'python3 test.py'
       }
     }
   }
