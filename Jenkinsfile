@@ -6,12 +6,12 @@ pipeline {
       steps {
         cleanWs()
         checkout scm
-        sh 'python -m virtualenv .venv'
+        sh 'python3 -m virtualenv .venv'
         sh 'source .venv/bin/activate'
         sh 'ls -a'
         sh 'pwd'
         sh 'python3 --version'
-        sh 'pip install -r requirements.txt'
+        sh 'pip3 install -r requirements.txt'
         sh 'ls -a'
       }
     }
