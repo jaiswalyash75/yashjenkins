@@ -6,7 +6,7 @@ pipeline {
       steps {
         cleanWs()
         checkout scm
-        sh 'virtualenv .venv'
+        sh 'python -m virtualenv .venv'
         sh 'source .venv/bin/activate'
         sh 'ls -a'
         sh 'pwd'
