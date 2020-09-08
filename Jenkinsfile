@@ -1,5 +1,8 @@
 pipeline {
-  agent { docker { image 'python:3.7.2' } }
+  agent any
+  environment {
+    GITHUB_CREDENTIALS=credentials('my-git-creds')
+  }
   stages {
     stage('build') {
       steps {
@@ -8,8 +11,15 @@ pipeline {
     }
     stage('test') {
       steps {
+        sh 'python linting.py'
         sh 'python test.py'
-      }   
+      }
     }
   }
+  post{
+     always {
+        cleanWs()
+     }
+  }
 }
+
